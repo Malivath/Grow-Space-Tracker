@@ -1,6 +1,6 @@
-// src/components/SignUp.js
 // Import necessary libraries and components
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import { useAuth } from '../contexts/AuthContext'; // Import useAuth to get authentication state and methods
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Import Firebase authentication method for signing up
 
@@ -11,6 +11,7 @@ const SignUp = () => {
   const [password, setPassword] = useState(''); // State for the password input field
   const [error, setError] = useState(''); // State for handling error messages
   const { auth } = useAuth(); // Get the auth object from the AuthContext
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -19,7 +20,7 @@ const SignUp = () => {
     try {
       // Attempt to create a new user with email and password
       await createUserWithEmailAndPassword(auth, email, password);
-      // Redirect to homepage or another page (implementation needed)
+      navigate('/signin'); // Redirect to sign-in page after successful registration
     } catch (error) {
       setError(error.message); // Set the error state with the error message
     }
