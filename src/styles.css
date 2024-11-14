@@ -1,0 +1,272 @@
+/* src/styles.css */
+
+
+body {
+    /*background-image: url('./assets/images/greenhouse.png'); */
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  h2 {
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  #list-name {
+    color: #111;
+    font-size: larger;
+  }
+  
+  label {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  
+  /* Exception for Calendar h2 */
+  h2.calendar-title {
+    color: black;
+    text-shadow: none;
+  }
+  
+  .list-group-item {
+    background-color: rgba(255, 255, 255, 0.443);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for Save Note Button */
+  .save-note-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    position: relative; /* Add relative positioning */
+    top: -15px; /* Adjust to move the button higher */
+  }
+  
+  .save-note-btn:hover {
+    background-color: #45a049;
+  }
+  
+  #saveEdit{
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+
+  
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #b20000, /* Darker Red */
+    #b20000, /* Darker Red */
+    #b2b200, /* Darker Yellow */
+    #b2b200, /* Darker Yellow */
+    #36b200, /* Darker Green */
+    #36b200, /* Darker Green */
+    #b20000  /* Darker Red */
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.button-85:hover {
+  color: #fff;
+  background: #282828;
+  animation: glowing-hover 5s linear infinite;
+}
+
+@keyframes glowing-hover {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+#submit {
+  margin-left: 8px;
+}
+
+#register {
+  margin-top: 10px;
+}
+
+#plantInputs {
+  margin-left: 5px;
+}
+
+/* Darker Rastafarian Theme for Grow Space List */
+.grow-space-container {
+  background: linear-gradient(to right, #b20000, #b2b200, #36b200); /* Darker Red, Darker Yellow, Darker Green */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.grow-space-item {
+  background-color: rgba(0, 125, 21, 0.349); /* Semi-transparent white background */
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grow-space-item details summary {
+  background: linear-gradient(to right, #36b200, #b2b200, #b20000); /* Darker Green, Darker Yellow, Darker Red */
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.grow-space-item details summary:hover {
+  background: linear-gradient(to right, #b20000, #b2b200, #36b200); /* Darker Red, Darker Yellow, Darker Green */
+}
+
+.calendar-container {
+  background: linear-gradient(to right, #b20000, #b2b200, #36b200); /* Darker Rastafarian colors */
+  padding: 20px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  text-align: center; /* Center content */
+}
+
+.calendar-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.react-calendar {
+  margin: 0 auto; /* Center calendar */
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+button.save-note-btn {
+  margin-top: 15px;
+}
+
+/* Customize React Calendar */
+.react-calendar {
+  background: rgba(0, 0, 0, 0.8); /* Dark background */
+  border-radius: 10px;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+.react-calendar__navigation {
+  background: linear-gradient(to right, #b20000, #b2b200, #36b200); /* Darker Rastafarian colors */
+  border-radius: 8px;
+}
+
+.react-calendar__tile--now {
+  background: rgba(178, 0, 0, 0.8) !important; /* Darker red for current day */
+  color: white !important;
+}
+
+.react-calendar__tile--active {
+  background: rgba(54, 178, 0, 0.8) !important; /* Darker green for selected day */
+  color: white !important;
+}
+
+.react-calendar__tile {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent tile background */
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.react-calendar__tile:hover {
+  background: rgba(178, 178, 0, 0.8) !important; /* Darker yellow on hover */
+  color: white !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #ff6666; /* Light red for weekends */
+}
+
+.react-calendar__tile--hasActive {
+  background: rgba(54, 178, 0, 0.8) !important; /* Darker green for tiles with active date */
+}
