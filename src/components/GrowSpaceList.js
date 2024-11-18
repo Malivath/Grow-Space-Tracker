@@ -9,6 +9,7 @@ import { db } from '../firebase'; // Import the Firebase instance
 import CalendarComponent from './CalendarComponent'; // Import CalendarComponent
 import PlantsDropdown from './PlantsDropdown'; // Import PlantsDropdown component
 
+
 // Define the GrowSpaceList component
 const GrowSpaceList = () => {
   // Define state variables to manage grow spaces and form inputs
@@ -150,7 +151,31 @@ const GrowSpaceList = () => {
       console.error("Error logging out: ", error); // Log any errors to the console
     }
   };
-
+  useEffect(() => {
+    console.log('Current User:', currentUser); // Check if currentUser is null
+  
+    const fetchGrowSpaces = async () => {
+      if (!currentUser) {
+        console.log('No current user'); // Debug log
+        return;
+      }
+      try {
+        const q = query(collection(db, 'growSpaces'), where('userId', '==', currentUser.uid));
+        const querySnapshot = await getDocs(q);
+        const spacesData = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log('Fetched Grow Spaces:', spacesData); // Debug log
+        setGrowSpaces(spacesData);
+      } catch (error) {
+        console.error("Error fetching grow spaces: ", error);
+      }
+    };
+  
+    fetchGrowSpaces();
+  }, [currentUser]);
+  
 // Render the component
 return (
   <div>
